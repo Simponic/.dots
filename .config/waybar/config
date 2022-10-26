@@ -25,7 +25,7 @@
     "format": " {temperatureC}°C "
   },
   "custom/spotify": {
-    "exec": "/home/logan/scripts/mediaplayer.py --player spotify --period 1 --width 18",
+    "exec": "/home/logan/scripts/mediaplayer.py --player spotifyd",
     "format": "{}  ",
     "return-type": "json",
     "on-click": "playerctl play-pause",

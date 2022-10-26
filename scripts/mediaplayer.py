@@ -36,7 +36,8 @@ def print_every_second(width, period=1):
     print_thread.start()
 
     cache["i"] += 1
-    cache["text"] = wrap_text(cache["formattedText"], width, cache["i"])
+    if "formattedText" in cache:
+        cache["text"] = wrap_text(cache["formattedText"], width, cache["i"])
 
     print_from_cache()
 
