@@ -2,7 +2,7 @@
   "position": "top",
   "spacing": 0,
   "modules-left": ["network", "clock"],
-  "modules-center": ["sway/workspaces", "custom/spotify"],
+  "modules-center": ["sway/workspaces", "custom/spotifyd"],
   "modules-right": ["pulseaudio", "memory", "cpu", "temperature#cpu", "backlight", "battery"],
 
   "clock": {
@@ -24,13 +24,14 @@
     "critical-threshold": 70,
     "format": " {temperatureC}°C "
   },
-  "custom/spotify": {
-    "exec": "/home/logan/scripts/mediaplayer.py --player spotifyd",
-    "format": "{}  ",
+  "custom/spotifyd": {
+    "format": " {}",
     "return-type": "json",
-    "on-click": "playerctl play-pause",
-    "on-scroll-up": "playerctl next",
-    "on-scroll-down": "playerctl previous"
+    "exec": "spdcon -o waybar",
+    "on-click": "spdcon -c PlayPause",
+    "on-click-right": "spdcon -c Next",
+    "on-click-middle": "spdcon -c Previous",
+    "interval": 2,
   },
   "battery": {
     "states": {
