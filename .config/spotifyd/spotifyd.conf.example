@@ -1,0 +1,15 @@
+[global]
+username = "laskdfjalskdjfaklsdjflakjd"
+password = "asdfasdfasdfasdfasdf"
+on_song_change_hook = "/home/ME/scripts/songnotification"
+cache_path = "/home/ME/.cache/spotifyd"
+
+device_name = "archbox"
+
+
+backend = "pulseaudio"
+bitrate = 160
+volume_normalisation = true
+normalisation_pregain = -10
+device_type = "computer"
+no_audio_cache = true

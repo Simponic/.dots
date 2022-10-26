@@ -1,0 +1,59 @@
+* {
+  font-family: CozetteVector;
+  font-size: 16px;
+  color: #3C3836; /* Foreground "black" */
+}
+
+window > box {
+  margin: 4px 4px 4px 0px;
+}
+
+window#waybar {
+  background: rgba(251,241,199,0.7); /* Background "wheat"-ish */
+}
+
+#workspaces button {
+  background: #fbf1c7;
+  margin-right: 5px;
+}
+
+#workspaces button.focused {
+  background: #689d6a;  /* Aqua */
+}
+
+/* Modules */
+
+#clock, #battery, #cpu, #memory, #disk, #temperature, #backlight, #network, #pulseaudio, #custom-media, #custom-launcher, #custom-power, #tray, #mode, #idle_inhibitor , #mpd, .custom-spotify {
+  padding: 0 10px;
+  margin: 0px 5px;
+  background: #fbf1c7;
+  border-radius: 3px;
+}
+
+#battery {
+  background-color: #D79921;
+}
+
+#battery.charging, #battery.plugged {
+  background-color: #98971A;
+}
+
+#network {
+  background-color: #98971A;
+}
+
+#network.disconnected {
+  background-color: #cc241d;
+}
+
+#temperature {
+  background-color: #98971a;
+}
+
+#temperature.critical {
+  background-color: #cc241d;
+}
+
+#pulseaudio.muted {
+    background-color: #cc241d;
+}

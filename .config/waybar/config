@@ -1,0 +1,72 @@
+{
+  "position": "top",
+  "spacing": 0,
+  "modules-left": ["network", "clock"],
+  "modules-center": ["sway/workspaces", "custom/spotify"],
+  "modules-right": ["pulseaudio", "memory", "cpu", "temperature#cpu", "backlight", "battery"],
+
+  "clock": {
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format": " {:%A, %d %B %Y, %H:%M}",
+    "interval": 60
+  },
+  "backlight": {
+    "format": " {}%"
+  },
+  "cpu": {
+    "format": " {usage}%"
+  },
+  "memory": {
+    "format": " {}%",
+    "tooltip": false,
+  },
+  "temperature#cpu": {
+    "critical-threshold": 70,
+    "format": " {temperatureC}°C "
+  },
+  "custom/spotify": {
+    "exec": "/home/logan/scripts/mediaplayer.py --player spotify --period 1 --width 18",
+    "format": "{}  ",
+    "return-type": "json",
+    "on-click": "playerctl play-pause",
+    "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous"
+  },
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-alt": "{time} {icon}",
+    // "format-good": "", // An empty format will hide the module
+    // "format-full": "",
+    "format-icons": ["", "", "", "", ""]
+  },
+  "network": {
+    "format-wifi": " {ipaddr}",
+    "format-ethernet": " {ipaddr}/{cidr}",
+    "format-disconnected": "⚠ Disconnected",
+  },
+  "pulseaudio": {
+    // "scroll-step": 1, // %, can be a float
+    "format": "{icon} {volume}% {format_source}",
+    "format-bluetooth": "{icon}  {volume}% {format_source}",
+    "format-bluetooth-muted": "  {icon}  {format_source}",
+    "format-muted": "  {format_source}",
+    "format-source": " {volume}%",
+    "format-source-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""]
+    },
+    "on-click": "pavucontrol"
+  },
+}

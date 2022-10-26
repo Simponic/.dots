@@ -1,0 +1,5 @@
+modmap:
+  - name: CapsLock Control
+    remap: # Required
+      KEY_CAPSLOCK:  CONTROL_L
+      CONTROL_L: KEY_ESC
