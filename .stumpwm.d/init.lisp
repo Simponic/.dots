@@ -19,3 +19,5 @@
 
 ;; Follow focus on mouse hover
 (setq *mouse-focus-policy* :sloppy)
+
+(run-shell-command "dunst")
