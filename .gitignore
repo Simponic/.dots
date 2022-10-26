@@ -12,6 +12,7 @@
 !ascii-arts
 !ascii-arts/*
 !zsh-stuff
+!zsh-stuff/*
 
 !.config
 !.config/picom

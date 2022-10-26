@@ -1,9 +1,12 @@
-[submodule "zsh-stuff/zsh-syntax-highlighting"]
-	path = zsh-stuff/zsh-syntax-highlighting
-	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule ".stumpwm.d/modules"]
+	path = .stumpwm.d/modules
+	url = https://github.com/stumpwm/stumpwm-contrib
 [submodule "zsh-stuff/spaceship-prompt"]
 	path = zsh-stuff/spaceship-prompt
 	url = https://github.com/spaceship-prompt/spaceship-prompt.git
-[submodule ".stumpwm.d/modules"]
+[submodule "spaceship"]
+	path = zsh-stuff/spaceship-prompt
+	url = https://github.com/spaceship-prompt/spaceship-prompt.git
+[submodule "stumpwm-modules"]
 	path = .stumpwm.d/modules
 	url = https://github.com/stumpwm/stumpwm-contrib
