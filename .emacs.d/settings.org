@@ -260,3 +260,8 @@ After installing the ~rust-analyzer~ program, the following can be used:
                                (enable-minor-mode
                                 '("\\.tsx?\\'" . prettier-js-mode))))
 #+END_SRC
+*** Kotlin
+#+BEGIN_SRC emacs-lisp
+  (use-package kotlin-mode
+    :ensure t)
+#+END_SRC
