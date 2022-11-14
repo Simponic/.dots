@@ -16,9 +16,8 @@ exec xset b off &
 exec xset -dpms &
 
 
+exec feh --bg-scale --randomize ~/Wallpapers &
 exec ~/.screenlayout/run.sh &
-
-exec feh --bg-fill --randomize ~/Wallpapers/*
 
 exec sleep 1s && dunst &
 
