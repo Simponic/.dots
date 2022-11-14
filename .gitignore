@@ -2,8 +2,13 @@
 !.gitignore
 !.gitmodules
 
+!.xinitrc
+!.xmodmap
+
 !scripts
 !scripts/*
+
+!quicklisp.lisp
 
 !.vimrc
 

@@ -26,9 +26,6 @@ alias gsh="git stash"
 alias gl="git log"
 
 alias sbcl="rlwrap sbcl"
-# Muscle memory is killing me man
-alias vim="nvim"
-alias startx="sway"
 
 export TERM=xterm-256color
 

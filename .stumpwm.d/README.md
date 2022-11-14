@@ -24,7 +24,12 @@ Then in the REPL:
 And install some packages from quicklisp:
 
 ```common-lisp
-(ql:quickload '(:clx :cl-ppcre :alexandria))
+(ql:quickload '(:clx :cl-ppcre :alexandria :sb-cltl :swank))
+```
+
+And in your .xinitrc:
+```
+export SBCL_HOME=/usr/lib/sbcl
 ```
 
 ### Other
