@@ -28,6 +28,7 @@ alias gl="git log"
 alias sbcl="rlwrap sbcl"
 
 export TERM=xterm-256color
+export GPG_TTY=$(tty)
 
 # Alt+b stops at forwardslashes
 backward-kill-dir () {
