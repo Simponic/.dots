@@ -244,6 +244,8 @@ After installing the ~rust-analyzer~ program, the following can be used:
   (use-package web-mode
     :ensure t
     :mode (("\\.js\\'" . web-mode)
+           ("\\.scss\\'" . web-mode)
+           ("\\.css\\'" . web-mode)
            ("\\.jsx\\'" .  web-mode)
            ("\\.ts\\'" . web-mode)
            ("\\.tsx\\'" . web-mode)
