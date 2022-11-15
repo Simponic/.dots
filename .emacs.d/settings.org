@@ -207,7 +207,7 @@
     :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
            (elixir-mode . lsp)
            (rust-mode . lsp)
-           (typescript-mode . lsp)
+           (typescript-mode . lsp) ;; npm install -g typescript typescript-language-server
            ;; if you want which-key integration
            (lsp-mode . lsp-enable-which-key-integration))
     :commands lsp)
@@ -254,12 +254,12 @@ After installing the ~rust-analyzer~ program, the following can be used:
 #+BEGIN_SRC emacs-lisp
   (use-package prettier-js
     :ensure t)
-  (add-hook 'web-mode-hook #'(lambda ()
-                               (enable-minor-mode
-                                '("\\.jsx?\\'" . prettier-js-mode))
-                               (enable-minor-mode
-                                '("\\.tsx?\\'" . prettier-js-mode))))
+  (add-hook 'js2-mode-hook 'prettier-js-mode)
+  (add-hook 'web-mode-hook 'prettier-js-mode)
 #+END_SRC
+
+#+RESULTS:
+
 *** Kotlin
 #+BEGIN_SRC emacs-lisp
   (use-package kotlin-mode
