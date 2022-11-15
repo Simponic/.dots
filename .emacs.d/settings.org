@@ -3,6 +3,22 @@
 #+STARTUP: fold
 
 * Packages
+** Straight
+#+BEGIN_SRC emacs-lisp
+  (defvar bootstrap-version)
+  (let ((bootstrap-file
+         (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+        (bootstrap-version 6))
+    (unless (file-exists-p bootstrap-file)
+      (with-current-buffer
+          (url-retrieve-synchronously
+           "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
+           'silent 'inhibit-cookies)
+        (goto-char (point-max))
+        (eval-print-last-sexp)))
+    (load bootstrap-file nil 'nomessage))
+#+END_SRC
+
 ** Melpa
 #+BEGIN_SRC emacs-lisp
   (require 'package)
@@ -261,6 +277,15 @@ After installing the ~rust-analyzer~ program, the following can be used:
 #+END_SRC
 
 #+RESULTS:
+**** Prisma
+#+BEGIN_SRC emacs-lisp
+  (use-package prisma-mode
+    :ensure t
+    :straight '(prisma-mode
+                :type git
+                :host github
+                :repo "pimeys/emacs-prisma-mode"))
+#+END_SRC
 
 *** Kotlin
 #+BEGIN_SRC emacs-lisp
