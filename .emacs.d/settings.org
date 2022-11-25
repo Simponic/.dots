@@ -3,35 +3,12 @@
 #+STARTUP: fold
 
 * Packages
-** Straight
-#+BEGIN_SRC emacs-lisp
-  (defvar bootstrap-version)
-  (let ((bootstrap-file
-         (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
-        (bootstrap-version 6))
-    (unless (file-exists-p bootstrap-file)
-      (with-current-buffer
-          (url-retrieve-synchronously
-           "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
-           'silent 'inhibit-cookies)
-        (goto-char (point-max))
-        (eval-print-last-sexp)))
-    (load bootstrap-file nil 'nomessage))
-#+END_SRC
-
 ** Melpa
 #+BEGIN_SRC emacs-lisp
   (require 'package)
   (add-to-list 'package-archives
                '("melpa" . "https://melpa.org/packages/") t)
 #+END_SRC
-** use-package
-#+BEGIN_SRC emacs-lisp
-  (dolist (package '(use-package))
-    (unless (package-installed-p package)
-      (package-install package)))
-#+END_SRC
-
 * General emacs
 ** Tab bar mode
 #+BEGIN_SRC emacs-lisp
@@ -73,12 +50,13 @@
 #+END_SRC
 ** System path (macos)
 #+BEGIN_SRC emacs-lisp
-  ;; Use system path on macos - needed for node
+    ;; Use system path on macos - needed for node
+
   (use-package exec-path-from-shell
-    :ensure t
-    :init
-    (when (memq window-system '(mac ns x))
-      (exec-path-from-shell-initialize)))
+      :ensure t
+      :init
+      (when (memq window-system '(mac ns x))
+        (exec-path-from-shell-initialize)))
 #+END_SRC
 
 * Theming
@@ -195,6 +173,15 @@
     :init
     (add-hook 'org-mode-hook 'org-appear-mode))  
 #+END_SRC
+** Presentations
+#+BEGIN_SRC emacs-lisp
+  (use-package org-present
+    :ensure t
+    :straight '(org-present
+                :type git
+                :host github
+                :repo "rlister/org-present"))
+#+END_SRC
 
 * Development
 ** Git
@@ -275,8 +262,6 @@ After installing the ~rust-analyzer~ program, the following can be used:
   (add-hook 'js2-mode-hook 'prettier-js-mode)
   (add-hook 'web-mode-hook 'prettier-js-mode)
 #+END_SRC
-
-#+RESULTS:
 **** Prisma
 #+BEGIN_SRC emacs-lisp
   (use-package prisma-mode
