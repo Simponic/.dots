@@ -1,5 +1,3 @@
-(require 'org)
-
 ;; Install straight.el
 (defvar bootstrap-version)
 (let ((bootstrap-file
@@ -21,6 +19,8 @@
 (use-package straight
              :custom (straight-use-package-by-default t))
 
+(straight-use-package 'org)
+(require 'org)
 (org-babel-load-file
  (expand-file-name "settings.org"
 		   user-emacs-directory))
