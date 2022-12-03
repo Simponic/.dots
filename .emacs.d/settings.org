@@ -222,6 +222,12 @@
 #+END_SRC
 ** Languages
 *** Common Lisp
+**** Rainbow Parentheses
+#+BEGIN_SRC emacs-lisp
+  (use-package rainbow-delimiters :ensure t)
+  (add-hook 'lisp-mode-hook #'rainbow-delimiters-mode)
+#+END_SRC
+
 **** Slime
 #+BEGIN_SRC emacs-lisp
   (use-package slime
