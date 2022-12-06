@@ -251,8 +251,8 @@
 #+END_SRC
 *** Elixir
 #+BEGIN_SRC emacs-lisp
-  (use-package elixir-mode
-    :ensure t)
+    (use-package elixir-mode
+      :ensure t)
 #+END_SRC
 *** Rust
 After installing the ~rust-analyzer~ program, the following can be used:
@@ -263,6 +263,15 @@ After installing the ~rust-analyzer~ program, the following can be used:
 #+END_SRC
 
 *** Web Stuff
+**** TIDE
+#+BEGIN_SRC emacs-lisp
+(use-package tide
+  :ensure t
+  :after (typescript-mode company flycheck)
+  :hook ((typescript-mode . tide-setup)
+         (typescript-mode . tide-hl-identifier-mode)
+         (before-save . tide-format-before-save)))
+#+END_SRC
 **** Web Mode
 #+BEGIN_SRC emacs-lisp
   ;; web-mode
