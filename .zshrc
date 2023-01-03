@@ -50,3 +50,5 @@ SAVEHIST=10000
 setopt appendhistory
 
 eval $(thefuck --alias)
+
+[ -f "/home/logan/.ghcup/env" ] && source "/home/logan/.ghcup/env" # ghcup-env

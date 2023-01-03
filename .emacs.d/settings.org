@@ -251,8 +251,9 @@
 #+END_SRC
 *** Elixir
 #+BEGIN_SRC emacs-lisp
-    (use-package elixir-mode
-      :ensure t)
+  (use-package elixir-mode
+    :ensure t
+    :hook ((before-save . elixir-format)))
 #+END_SRC
 *** Rust
 After installing the ~rust-analyzer~ program, the following can be used:
@@ -310,4 +311,11 @@ After installing the ~rust-analyzer~ program, the following can be used:
 #+BEGIN_SRC emacs-lisp
   (use-package kotlin-mode
     :ensure t)
+#+END_SRC
+* Elcord
+#+BEGIN_SRC emacs-lisp
+  (use-package elcord
+    :ensure t)
+
+  (elcord-mode)
 #+END_SRC
