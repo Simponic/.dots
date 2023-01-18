@@ -306,7 +306,15 @@ After installing the ~rust-analyzer~ program, the following can be used:
                 :host github
                 :repo "pimeys/emacs-prisma-mode"))
 #+END_SRC
-
+**** Svelte
+#+BEGIN_SRC emacs-lisp
+  (use-package svelte-mode
+    :ensure t
+    :straight '(svelte-mode
+                :type git
+                :host github
+                :repo "leafOfTree/svelte-mode"))
+#+END_SRC
 *** Kotlin
 #+BEGIN_SRC emacs-lisp
   (use-package kotlin-mode
