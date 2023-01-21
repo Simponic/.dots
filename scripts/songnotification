@@ -1,4 +1,4 @@
 #!/bin/sh
-song=$(playerctl metadata --format "{{ title }}\n{{ artist }}\n{{ album }}")
+#song=$(playerctl metadata --format "{{ title }}\n{{ artist }}\n{{ album }}")
 #notify-send "Now Playing" "$song" #--icon=~/.config/spotifyd/penguin.jpg
 
