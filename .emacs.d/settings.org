@@ -320,6 +320,16 @@ After installing the ~rust-analyzer~ program, the following can be used:
   (use-package kotlin-mode
     :ensure t)
 #+END_SRC
+*** Java
+#+BEGIN_SRC emacs-lisp
+  (use-package lsp-java
+    :config (add-hook 'java-mode-hook 'lsp)
+    :ensure t)
+#+END_SRC
+
+#+RESULTS:
+: t
+
 * Elcord
 #+BEGIN_SRC emacs-lisp
   (use-package elcord
