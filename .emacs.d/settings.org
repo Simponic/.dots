@@ -212,13 +212,19 @@
     :init
     ;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
     (setq lsp-keymap-prefix "C-c l")
-    :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
+    :hook ((python-mode . lsp) ;; pip install python-lsp-server pyls-black pyls-isort pyls-mypy
            (elixir-mode . lsp)
            (rust-mode . lsp)
+           (java-mode . lsp)
            (typescript-mode . lsp) ;; npm install -g typescript typescript-language-server
-           ;; if you want which-key integration
            (lsp-mode . lsp-enable-which-key-integration))
+    :config (lsp-register-custom-settings
+             '(("pyls.plugins.pyls_mypy.enabled" t t)
+               ("pyls.plugins.pyls_mypy.live_mode" nil t)
+               ("pyls.plugins.pyls_black.enabled" t t)
+               ("pyls.plugins.pyls_isort.enabled" t t)))
     :commands lsp)
+
 #+END_SRC
 ** Languages
 *** Common Lisp
@@ -329,6 +335,16 @@ After installing the ~rust-analyzer~ program, the following can be used:
 
 #+RESULTS:
 : t
+** Format All The Buffers
+#+BEGIN_SRC emacs-lisp
+  (use-package format-all
+    :ensure t)
+  (add-hook 'prog-mode-hook 'format-all-mode)
+  (add-hook 'format-all-mode-hook 'format-all-ensure-formatter)
+#+END_SRC
+
+#+RESULTS:
+| format-all-ensure-formatter |
 
 * Elcord
 #+BEGIN_SRC emacs-lisp
