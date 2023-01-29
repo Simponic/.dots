@@ -45,7 +45,7 @@
 !.config/spotifyd/*
 
 !.emacs.d
-!.emacs.d/*
+!.emacs.d/settings.org
 
 !.stumpwm.d
 !.stumpwm.d/*
