@@ -51,4 +51,8 @@ setopt appendhistory
 
 eval $(thefuck --alias)
 
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
 [ -f "/home/logan/.ghcup/env" ] && source "/home/logan/.ghcup/env" # ghcup-env

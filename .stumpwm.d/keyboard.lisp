@@ -20,3 +20,7 @@
 
 (define-key *root-map* (kbd "C-t") "exec alacritty")
 (define-key *root-map* (kbd "b") "exec firefox")
+
+(when (is-work-machine)
+  (define-key *root-map* (kbd "C-i") "exec aggietimed --action clock-in")
+  (define-key *root-map* (kbd "C-o") "exec aggietimed --action clock-out"))

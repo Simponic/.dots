@@ -216,6 +216,7 @@
            (elixir-mode . lsp)
            (rust-mode . lsp)
            (java-mode . lsp)
+           (php-mode . lsp)
            (typescript-mode . lsp) ;; npm install -g typescript typescript-language-server
            (lsp-mode . lsp-enable-which-key-integration))
     :config (lsp-register-custom-settings
@@ -335,6 +336,14 @@ After installing the ~rust-analyzer~ program, the following can be used:
 
 #+RESULTS:
 : t
+*** PHP
+#+BEGIN_SRC emacs-lisp
+  (use-package php-mode
+    :ensure t)
+#+END_SRC
+
+#+RESULTS:
+
 ** Format All The Buffers
 #+BEGIN_SRC emacs-lisp
   (use-package format-all

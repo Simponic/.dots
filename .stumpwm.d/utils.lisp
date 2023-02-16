@@ -9,8 +9,14 @@
                     (t (sub (subseq s 1))))))
           (sub (string string2))))))
 
+(defun env-exists (name)
+  (loop for item in (sb-ext:posix-environ) thereis (string-include name item)))
+
 (defun is-laptop ()
-  (loop for item in (sb-ext:posix-environ) thereis (string-include "LAPTOP" item)))
+  (env-exists "LAPTOP"))
+
+(defun is-work-machine ()
+  (env-exists "WORK_MACHINE"))
 
 (defun insert-seperators (l &optional (seperator " | ") (seperated-list (list seperator)))
   (if (car l)
