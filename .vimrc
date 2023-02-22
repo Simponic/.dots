@@ -22,7 +22,6 @@ set statusline+=\ %l:%c
 
 highlight Normal ctermbg=NONE
 highlight nonText ctermbg=NONE
-highlight CursorLine ctermbg=255 ctermfg=NONE
 highlight StatusLine ctermbg=255 
 highlight StatusLineTerm ctermbg=238 ctermfg=255
 highlight StatusLineTermNC ctermbg=232 ctermfg=238

@@ -1,0 +1,13 @@
+[Unit]
+Description=xremap on startup as user
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/xremap /home/lizzy/.config/xremap/config.yml
+#Restart=always
+#RuntimeMaxSec=1000s
+#TimeoutSec=0
+#RemainAfterExit=yes
+
+[Install]
+WantedBy=default.target
