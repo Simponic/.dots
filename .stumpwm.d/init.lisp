@@ -21,5 +21,5 @@
 (setq *mouse-focus-policy* :sloppy)
 
 (when (is-work-machine)
-  (run-shell-command "~/scripts/watch_aggietimed.sh"))
+  (run-shell-command "sleep 3 && . ~/scripts/watch_aggietimed.sh"))
 (run-shell-command "dunst")
