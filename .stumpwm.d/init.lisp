@@ -20,4 +20,6 @@
 ;; Follow focus on mouse hover
 (setq *mouse-focus-policy* :sloppy)
 
+(when (is-work-machine)
+  (run-shell-command "~/scripts/watch_aggietimed.sh"))
 (run-shell-command "dunst")
