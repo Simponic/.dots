@@ -23,11 +23,6 @@ then
   vim ~/.config/systemd/user/guestbookd.service
 fi
 
-# /var/run socket
-sudo mkdir /var/run/guestbookd
-user=$USER
-sudo chown -R $user:$user /var/run/guestbookd
-
 # NGINX
 nginx_config="
 worker_processes 1;
@@ -49,7 +44,7 @@ http {
 
 guestbook_config="
 upstream soc {
-  server unix:/var/run/guestbookd/guestbookd.sock;
+  server unix:/tmp/guestbookd.sock;
 }
 
 server {
