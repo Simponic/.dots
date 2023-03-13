@@ -33,7 +33,7 @@ SAVEHIST=10000
 setopt appendhistory
 
 # asdf
-[ -f /opt/asdf-vm/asdf.sh ] && . /opt/asdf-vm-asdf.sh
+[ -f /opt/asdf-vm/asdf.sh ] && . /opt/asdf-vm/asdf.sh
 
 
 # thefuck
