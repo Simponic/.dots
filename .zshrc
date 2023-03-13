@@ -13,8 +13,6 @@ then
 	printf "$(cat $logo)\n\n"
 fi
 
-. /opt/asdf-vm/asdf.sh
-
 # Alt+b stops at forwardslashes
 backward-kill-dir () {
     local WORDCHARS=${WORDCHARS/\/}
@@ -34,13 +32,21 @@ HISTSIZE=10000
 SAVEHIST=10000
 setopt appendhistory
 
+# asdf
+[ -f /opt/asdf-vm/asdf.sh ] && . /opt/asdf-vm-asdf.sh
+
+
 # thefuck
 eval $(thefuck --alias)
 
 # Pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+if [ -d "$HOME/.pyenv" ] 
+then
+  export PYENV_ROOT="$HOME/.pyenv"
+  command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init -)"
+fi
+  
 
  # ghcup-env
 [ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env"
