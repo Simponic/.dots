@@ -1,3 +1,5 @@
+export PATH=$PATH:~/work/simple_scripts
+
 # asdf
 [ -f /opt/asdf-vm/asdf.sh ] && . /opt/asdf-vm/asdf.sh
 
