@@ -1,6 +1,6 @@
-export PATH=$PATH:$HOME/scripts:/usr/local/i386elfgcc/bin/:$HOME/.local/bin:/usr/local/opt/binutils/bin:/usr/local/opt/gnu-tar/libexec/gnubin:/usr/local/opt/grep/libexec/gnubin:/usr/local/opt/findutils/libexec/gnubin:/usr/local/opt/coreutils/libexec/gnubin:$HOME/.elixir-ls/release:$HOME/.rowswell/bin
 export TERM=xterm-256color
 export GPG_TTY=$(tty)
+export PATH=$PATH:$HOME/scripts:$HOME/.local/bin:$HOME/.rowswell/bin
 
 # Print a random ascii arts from ~/ascii-arts
 if [ -d "$HOME/ascii-arts" ] 
@@ -32,25 +32,6 @@ HISTSIZE=10000
 SAVEHIST=10000
 setopt appendhistory
 
-# asdf
-[ -f /opt/asdf-vm/asdf.sh ] && . /opt/asdf-vm/asdf.sh
-
-
-# thefuck
-eval $(thefuck --alias)
-
-# Pyenv
-if [ -d "$HOME/.pyenv" ] 
-then
-  export PYENV_ROOT="$HOME/.pyenv"
-  command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-  eval "$(pyenv init -)"
-fi
-  
-
- # ghcup-env
-[ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env"
-
 # Aliases
 alias ..="cd .."
 alias gc="git checkout"
@@ -67,3 +48,6 @@ alias gsh="git stash"
 alias gl="git log"
 
 alias sbcl="rlwrap sbcl"
+
+# Machine specific config
+source ~/scripts/machine-specific-zsh/$(hostname).zsh

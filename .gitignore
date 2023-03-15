@@ -6,7 +6,7 @@
 !.xmodmap
 
 !scripts
-!scripts/*
+!scripts/**
 
 !quicklisp.lisp
 
