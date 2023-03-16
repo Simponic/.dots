@@ -50,4 +50,4 @@ alias gl="git log"
 alias sbcl="rlwrap sbcl"
 
 # Machine specific config
-source ~/scripts/machine-specific-zsh/$(hostname).zsh
+[ -f ~/scripts/machine-specific-zsh/$(hostname).zsh ] && source ~/scripts/machine-specific-zsh/$(hostname).zsh

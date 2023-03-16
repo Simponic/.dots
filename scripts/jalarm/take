@@ -1,0 +1,99 @@
+#!/usr/bin/python3
+
+import re
+import time as t
+import curses
+import sys
+import os
+import jar
+
+def formatTime(time):
+    return ((str(time[0]).zfill(2) + ":") if time[0] else "") + ((str(time[1]).zfill(2) + ":") if time[1] or time[0] else "") + (str(time[2]).zfill(2))
+
+def timeToSeconds(time):
+    return time[2] + 60*time[1] + 3600*time[0]
+
+def secondsToTime(seconds):
+    return [seconds // 3600, (seconds - (seconds // 3600) * 3600) // 60, seconds % 60]
+
+def decrementTime(time):
+    return secondsToTime(timeToSeconds(time) - 1)
+
+class MyTimerWindow:
+    def __init__(self, message="Timer"):
+        self.message = message
+        self.screen = curses.initscr()
+        curses.noecho()
+        curses.cbreak()
+        self.dimensions = self.screen.getmaxyx()
+        self.screen.keypad(True)
+        self.jar = jar.AwesomeJar(jar.jar)
+
+    def update(self, time, beginningTime):
+        self.jar.setProgress((timeToSeconds(beginningTime) - timeToSeconds(time))/timeToSeconds(beginningTime))
+
+    def step(self, time):
+        self.screen.clear()
+        self.screen.addstr(1, self.dimensions[1]//2 - len(self.message)//2, self.message)
+        self.screen.addstr(3, self.dimensions[1]//2 - len(formatTime(time))//2, formatTime(time))
+        list(map(lambda x: self.screen.addstr(8+x, self.dimensions[1]//2 - self.jar.jarObject["width"]//2, self.jar.drawJar()[x]), range(0, len(self.jar.drawJar()))))
+        self.screen.addstr(25,0,"")
+        self.screen.refresh()
+
+    def stop(self):
+        curses.nocbreak()
+        self.screen.keypad(False)
+        curses.echo()
+        curses.endwin()
+        os.system("aplay alarm.wav")
+
+def main():
+    p = re.compile('(^[0-9]*)(?::|^)([0-9]*(?=:)):([0-9]*$)')
+    beginning_time = list(map(lambda x: int(x) if x else 0, p.match(sys.argv[1]).groups()))
+    time = beginning_time.copy()
+
+    iteration_time = t.time()
+    if not "file" in sys.argv:
+        timer = MyTimerWindow() if len(sys.argv) < 3 else MyTimerWindow(sys.argv[2])
+        timer.update(time, beginning_time)
+        while any(time):
+            try:
+                timer.step(time)
+                t.sleep(1)
+                if (t.time() - iteration_time >= 1):
+                    iteration_time = t.time()
+                    time = decrementTime(time)
+                    timer.update(time, beginning_time)
+                    timer.step(time)
+            except KeyboardInterrupt:
+                break
+        timer.stop()
+        print("\nDONE")
+    else:
+        iteration_time = t.time()
+        try:
+            pid = open("/home/logan/scripts/state-files/take/pid.txt", "r")
+            os.system(f"kill -9 {pid.read()} 2> /dev/null")
+            pid.close()
+        except:
+            os.system("mkdir -p /home/logan/scripts/state-files/take")
+            pass
+        pid = open("/home/logan/scripts/state-files/take/pid.txt", "w")
+        pid.write(str(os.getpid()))
+        pid.close()
+        while any(time):
+            t.sleep(.1)
+            try:
+                if (t.time() - iteration_time >= 1):
+                    iteration_time = t.time()
+                    file = open("/home/logan/scripts/state-files/take/current-time.txt", "w")
+                    file.write(formatTime(time))
+                    file.close()
+                    time = decrementTime(time)
+            except KeyboardInterrupt:
+                break
+        file = open("/home/logan/scripts/state-files/take/current-time.txt", "w")
+        file.write("Not Timing")
+
+if __name__ == "__main__":
+    main()
