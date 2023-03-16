@@ -50,13 +50,12 @@
 #+END_SRC
 ** System path (macos)
 #+BEGIN_SRC emacs-lisp
-    ;; Use system path on macos - needed for node
-
+  ;; Use system path on macos - needed for node
   (use-package exec-path-from-shell
-      :ensure t
-      :init
-      (when (memq window-system '(mac ns x))
-        (exec-path-from-shell-initialize)))
+    :ensure t
+    :init
+    (when (memq window-system '(mac ns x))
+      (exec-path-from-shell-initialize)))
 #+END_SRC
 
 * Theming
@@ -153,6 +152,13 @@
   (setq org-startup-indented t)
 #+END_SRC
 ** Babel
+*** Elixir
+#+BEGIN_SRC emacs-lisp
+  (use-package ob-elixir
+     :ensure t)
+#+END_SRC
+
+*** Load Languages
 #+BEGIN_SRC emacs-lisp
   (org-babel-do-load-languages
    'org-babel-load-languages
@@ -160,12 +166,6 @@
      (elixir . t)
      (emacs-lisp . t)
      (python . t)))
-#+END_SRC
-
-*** Elixir
-#+BEGIN_SRC emacs-lisp
-  (use-package ob-elixir
-     :ensure t)
 #+END_SRC
 ** org-bullets
 #+BEGIN_SRC emacs-lisp
@@ -237,6 +237,18 @@
 #+END_SRC
 ** Languages
 *** Common Lisp
+**** Formatter! semantic-refactor
+#+BEGIN_SRC emacs-lisp
+  (use-package srefactor
+    :ensure t
+    :hook ((before-save .
+                        (lambda ()
+                          (when (eq major-mode 'lisp-mode)
+                            (srefactor-lisp-format-buffer))))))
+  (require 'srefactor)
+  (require 'srefactor-lisp)
+#+END_SRC
+
 **** Rainbow Parentheses
 #+BEGIN_SRC emacs-lisp
   (use-package rainbow-delimiters :ensure t)
