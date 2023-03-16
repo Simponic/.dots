@@ -280,7 +280,10 @@
 #+BEGIN_SRC emacs-lisp
   (use-package elixir-mode
     :ensure t
-    :hook ((before-save . elixir-format)))
+    :hook ((before-save .
+                        (lambda ()
+                          (when (eq major-mode 'elixir-mode)
+                            (elixir-format))))))
 #+END_SRC
 *** Rust
 After installing the ~rust-analyzer~ program, the following can be used:
