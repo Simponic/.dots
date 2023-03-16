@@ -291,15 +291,34 @@ After installing the ~rust-analyzer~ program, the following can be used:
 #+END_SRC
 
 *** Web Stuff
+**** typescript-mode
+#+BEGIN_SRC emacs-lisp
+  ;; TODO: Update to tree-sitter in Emacs 29
+  (use-package typescript-mode
+    :ensure t)
+  (setq typescript-indent-level 2)
+#+END_SRC
 **** TIDE
 #+BEGIN_SRC emacs-lisp
-(use-package tide
-  :ensure t
-  :after (typescript-mode company flycheck)
-  :hook ((typescript-mode . tide-setup)
-         (typescript-mode . tide-hl-identifier-mode)
-         (before-save . tide-format-before-save)))
+  (defun setup-tide-mode ()
+    (interactive)
+    (tide-setup)
+    (flycheck-mode +1)
+    (setq flycheck-check-syntax-automatically '(save mode-enabled))
+    (eldoc-mode +1)
+    (tide-hl-identifier-mode +1)
+    ;; company is an optional dependency. You have to
+    ;; install it separately via package-install
+    ;; `M-x package-install [ret] company`
+    (company-mode +1))
+
+  (use-package tide
+    :ensure t
+    :after (typescript-mode company flycheck)
+    :hook ((typescript-mode . setup-tide-mode)   ;; TODO: Update to tree-sitter in Emacs 29
+           (js2-mode . setup-tide-mode)))
 #+END_SRC
+
 **** Web Mode
 #+BEGIN_SRC emacs-lisp
   ;; web-mode
@@ -308,11 +327,9 @@ After installing the ~rust-analyzer~ program, the following can be used:
   (setq web-mode-css-indent-offset 2)
   (use-package web-mode
     :ensure t
-    :mode (("\\.js\\'" . web-mode)
-           ("\\.scss\\'" . web-mode)
+    :mode (("\\.scss\\'" . web-mode)
            ("\\.css\\'" . web-mode)
            ("\\.jsx\\'" .  web-mode)
-           ("\\.ts\\'" . web-mode)
            ("\\.tsx\\'" . web-mode)
            ("\\.html\\'" . web-mode))
     :commands web-mode)
@@ -322,6 +339,7 @@ After installing the ~rust-analyzer~ program, the following can be used:
   (use-package prettier-js
     :ensure t)
   (add-hook 'js2-mode-hook 'prettier-js-mode)
+  (add-hook 'typescript-mode 'prettier-js-mode)
   (add-hook 'web-mode-hook 'prettier-js-mode)
 #+END_SRC
 **** Prisma
