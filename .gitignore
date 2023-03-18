@@ -51,3 +51,5 @@
 !.stumpwm.d/*
 
 !NOTES.md
+
+**/__pycache__
