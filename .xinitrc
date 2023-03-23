@@ -4,6 +4,8 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 export SBCL_HOME=/usr/lib/sbcl
 export _QWT_TOOLKT=MToolkit
 
+exec ~/.screenlayout/run.sh &
+
 exec wmname compiz &
 
 exec emacs-keys-everywhere &
@@ -16,8 +18,7 @@ exec xset s off &
 exec xset b off &
 exec xset -dpms &
 
-exec feh --bg-scale --randomize ~/Wallpapers &
-exec ~/.screenlayout/run.sh &
+exec feh --bg-fill --randomize ~/Wallpapers &
 
 exec sleep 1s && dunst &
 

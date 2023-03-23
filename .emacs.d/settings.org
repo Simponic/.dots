@@ -396,6 +396,19 @@ After installing the ~rust-analyzer~ program, the following can be used:
 #+RESULTS:
 | format-all-ensure-formatter |
 
+* Multiple Cursors
+#+BEGIN_SRC emacs-lisp
+  (use-package multiple-cursors
+    :straight t
+    :ensure   t
+    :bind (("H-SPC" . set-rectangular-region-anchor)
+           ("C-M-SPC" . set-rectangular-region-anchor)
+           ("C->" . mc/mark-next-like-this)
+           ("C-<" . mc/mark-previous-like-this)
+           ("C-c C->" . mc/mark-all-like-this)
+           ("C-c C-SPC" . mc/edit-lines)
+           ))
+#+END_SRC
 * Elcord
 #+BEGIN_SRC emacs-lisp
   (use-package elcord

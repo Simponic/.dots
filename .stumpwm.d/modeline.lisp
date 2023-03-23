@@ -39,8 +39,6 @@
                     "%W"
                     "^>"
                     "%d"
-                    (:eval (make-bar "VOL" #'get-volume))
-                    (:eval (make-bar "TEMP" #'get-cpu-temp "(~a°C)"))
                     (:eval (get-ip))))
 (if (is-laptop)
     (push '(:eval (make-bar "BAT" #'get-battery)) (cdr (last *mode-line*))))
