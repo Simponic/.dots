@@ -46,6 +46,8 @@ alias gm="git merge"
 alias gss="git status"
 alias gsh="git stash"
 alias gl="git log"
+alias fuckuctl="journalctl --user -fu"
+alias fuckctl="journalctl -fu"
 
 alias sbcl="rlwrap sbcl"
 

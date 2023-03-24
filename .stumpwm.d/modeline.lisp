@@ -52,7 +52,7 @@
 (setf *mode-line-timeout* 1)
 
 ;; Show on each screen
-(mapcar
- (lambda (x)
-   (stumpwm:enable-mode-line (stumpwm:current-screen) x t))
- (stumpwm:screen-heads (stumpwm:current-screen)))
+;;(mapcar
+;; (lambda (x)
+;;   (stumpwm:enable-mode-line (stumpwm:current-screen) x t))
+;; (stumpwm:screen-heads (stumpwm:current-screen)))
