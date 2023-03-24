@@ -22,4 +22,6 @@ exec feh --bg-fill --randomize ~/Wallpapers &
 
 exec sleep 1s && dunst &
 
+exec systemd start --user display.target &
+
 /usr/local/bin/stumpwm
