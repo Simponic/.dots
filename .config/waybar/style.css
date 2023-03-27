@@ -23,7 +23,7 @@ window#waybar {
 
 /* Modules */
 
-#clock, #battery, #cpu, #memory, #disk, #temperature, #backlight, #network, #pulseaudio, #custom-media, #custom-launcher, #custom-power, #tray, #mode, #idle_inhibitor , #mpd, .spdcon {
+#clock, #battery, #cpu, #memory, #disk, #temperature, #backlight, #network, #pulseaudio, #custom-media, #custom-launcher, #custom-power, #tray, #mode, #idle_inhibitor , #mpd, #custom-waybar-mpris {
   padding: 0 10px;
   margin: 0px 5px;
   background: #fbf1c7;
@@ -56,4 +56,9 @@ window#waybar {
 
 #pulseaudio.muted {
     background-color: #cc241d;
+}
+
+tooltip {
+  background: #fbf1c7;
+  border: 1px solid rgba(100, 114, 125, 0.5);
 }

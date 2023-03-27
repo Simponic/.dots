@@ -1,4 +1,6 @@
 #!/bin/sh
-#song=$(playerctl metadata --format "{{ title }}\n{{ artist }}\n{{ album }}")
-#notify-send "Now Playing" "$song" #--icon=~/.config/spotifyd/penguin.jpg
+song=$(playerctl metadata --format "{{ title }}\n{{ artist }}")
 
+if [[ $PLAYER_EVENT = "load" ]]; then
+  notify-send "Now Playing" "$song" --icon=~/.config/spotifyd/logo.png
+fi

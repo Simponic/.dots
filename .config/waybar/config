@@ -1,17 +1,11 @@
 {
+  "include": "~/.config/waybar/local.d/*",
   "position": "top",
   "spacing": 0,
-  "modules-left": ["network", "clock"],
-  "modules-center": ["sway/workspaces", "custom/spotifyd"],
-  "modules-right": ["pulseaudio", "memory", "cpu", "temperature#cpu", "backlight", "battery"],
-
   "clock": {
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "format": " {:%A, %d %B %Y, %H:%M}",
     "interval": 60
-  },
-  "backlight": {
-    "format": " {}%"
   },
   "cpu": {
     "format": " {usage}%"
@@ -23,28 +17,6 @@
   "temperature#cpu": {
     "critical-threshold": 70,
     "format": " {temperatureC}°C "
-  },
-  "custom/spotifyd": {
-    "format": " {}",
-    "return-type": "json",
-    "exec": "spdcon -o waybar",
-    "on-click": "spdcon -c PlayPause",
-    "on-click-right": "spdcon -c Next",
-    "on-click-middle": "spdcon -c Previous",
-    "interval": 2,
-  },
-  "battery": {
-    "states": {
-      "warning": 30,
-      "critical": 15
-    },
-    "format": "{icon} {capacity}%",
-    "format-charging": " {capacity}%",
-    "format-plugged": " {capacity}%",
-    "format-alt": "{time} {icon}",
-    // "format-good": "", // An empty format will hide the module
-    // "format-full": "",
-    "format-icons": ["", "", "", "", ""]
   },
   "network": {
     "format-wifi": " {ipaddr}",
