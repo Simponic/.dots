@@ -202,13 +202,6 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 #
-# Status Bar:
-#
-bar {
-	swaybar_command waybar
-}
-
-#
 # Gaps
 #
 gaps inner 5
