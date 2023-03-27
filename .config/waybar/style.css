@@ -23,7 +23,7 @@ window#waybar {
 
 /* Modules */
 
-#clock, #battery, #cpu, #memory, #disk, #temperature, #backlight, #network, #pulseaudio, #custom-media, #custom-launcher, #custom-power, #tray, #mode, #idle_inhibitor , #mpd, #custom-waybar-mpris {
+#clock, #battery, #cpu, #memory, #disk, #temperature, #backlight, #network, #pulseaudio, #custom-media, #custom-launcher, #custom-power, #tray, #mode, #idle_inhibitor , #mpd, #custom-waybar-mpris, #custom-aggietimed {
   padding: 0 10px;
   margin: 0px 5px;
   background: #fbf1c7;
