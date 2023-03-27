@@ -5,9 +5,12 @@ Wants=sound.target
 After=sound.target
 Wants=network-online.target
 After=network-online.target
+Wants=display.target
 
 [Service]
-ExecStart=/usr/bin/spotifyd --config-path /home/lizzy/.config/spotifyd/spotifyd.conf --no-daemon
+Environment=DISPLAY=:0
+Type=simple
+ExecStart=/usr/bin/spotifyd --config-path /home/lizzy/.config/spotifyd/spotifyd.conf --password-cmd "pass show spotify" --no-daemon
 Restart=always
 RestartSec=12
 

@@ -1,9 +1,3 @@
-# Default config for sway
-#
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
-# Read `man 5 sway` for a complete reference.
-
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
@@ -27,18 +21,12 @@ set $wallpapers_path $HOME/Wallpapers
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output * bg `find $wallpapers_path -type f | shuf -n 1` fill
 
+# VNC External Monitor
 output HEADLESS-1 {
   pos 1920,0
   mode 1600x720
   # transform 90
 }
-
-#
-# Example configuration:
-#
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
-#
-# You can get the names of your outputs by running: swaymsg -t get_outputs
 
 ### Idle configuration
 #
@@ -229,15 +217,5 @@ client.focused "#000000" "#ffffff" "#000000"
 
 include /etc/sway/config.d/*
 
-#
-# Cursor
-#
-
-set $my_cursor Bibata-Modern-Amber
-set $my_cursor_size 16
-
-exec_always {
-    gsettings set org.gnome.desktop.interface cursor-theme $my_cursor
-    gsettings set org.gnome.desktop.interface cursor-size $my_cursor_size
-}
-
+# Display target has started
+exec systemctl start --user display.target &
