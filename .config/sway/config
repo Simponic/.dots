@@ -201,6 +201,11 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+# Bar
+bar {
+	swaybar_command waybar
+}
+
 #
 # Gaps
 #
