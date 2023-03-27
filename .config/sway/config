@@ -216,6 +216,7 @@ default_border pixel 3
 client.focused "#000000" "#ffffff" "#000000"
 
 include /etc/sway/config.d/*
+include ~/.config/sway/local.d/*
 
 # Display target has started
 exec systemctl start --user display.target &
