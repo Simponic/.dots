@@ -206,6 +206,10 @@ bar {
 	swaybar_command waybar
 }
 
+# Cursor
+exec gsettings set org.gnome.desktop.interface cursor-theme "Oxygen 19 Pink Blossom"
+seat seat0 xcursor_theme "Oxygen 19 Pink Blossom"
+
 #
 # Gaps
 #
