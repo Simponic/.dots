@@ -1,4 +1,3 @@
-export TERM=xterm-256color
 export GPG_TTY=$(tty)
 export PATH=$PATH:$HOME/scripts:$HOME/.local/bin:$HOME/.rowswell/bin
 
