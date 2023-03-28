@@ -1,6 +1,5 @@
 [global]
 username = "laskdfjalskdjfaklsdjflakjd"
-password = "asdfasdfasdfasdfasdf"
 on_song_change_hook = "/home/ME/scripts/songnotification"
 cache_path = "/home/ME/.cache/spotifyd"
 

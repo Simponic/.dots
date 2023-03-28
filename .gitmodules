@@ -7,3 +7,6 @@
 [submodule "zsh-stuff/zsh-syntax-highlighting"]
 	path = zsh-stuff/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule "src/pikaur"]
+	path = src/pikaur
+	url = https://github.com/actionless/pikaur

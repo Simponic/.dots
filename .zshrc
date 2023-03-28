@@ -50,6 +50,7 @@ alias fuckuctl="journalctl --user -fu"
 alias fuckctl="journalctl -fu"
 
 alias sbcl="rlwrap sbcl"
+alias spt="spt --tick-rate 12"
 
 # Machine specific config
 [ -f ~/scripts/machine-specific-zsh/$(hostname).zsh ] && source ~/scripts/machine-specific-zsh/$(hostname).zsh
