@@ -28,7 +28,8 @@ cd ~
 # AUR packages
 pikaur -S xremap-x11-bin spotify-tui-bin \
   betterdiscord-installer-bin discord obs-studio \
-  nerd-fonts-cozette-ttf ttf-font-awesome ttf-cozette
+  nerd-fonts-cozette-ttf ttf-font-awesome ttf-cozette \
+  waybar
 
 # xremap
 sudo groupadd input
