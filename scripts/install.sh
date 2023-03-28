@@ -54,7 +54,7 @@ sudo usermod -aG docker $USER
 mkdir Wallpapers && cd Wallpapers
 wget "https://github.com/FrenzyExists/wallpapers/raw/main/Gruv/gruv-temple.png"
 wget "https://e0.pxfuel.com/wallpapers/885/812/desktop-wallpaper-i3-gaps-gruvbox-arch-love-r-unixporn.jpg"
-wget "https://github.com/FrenzyExists/wallpapers/blob/main/Anime/anime-coffee-girl.jpg?raw=true"
+wget "https://github.com/FrenzyExists/wallpapers/raw/main/Anime/anime-coffee-girl.jpg"
 wget -U "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)"  "https://wallpapers.com//images/hd/celeste-madeline-strawberry-2o1vy9t0faa9vwm0.jpg"
 cd ..
 
