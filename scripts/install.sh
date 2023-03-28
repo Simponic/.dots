@@ -5,13 +5,13 @@ USER=lizzy
 MACHINE_ZSH=~/scripts/machine-specific-zsh/$(hostname).zsh
 
 # Some packages
-sudo pacman -S git emacs vim \
+sudo pacman -S git vim \
   networkmanager firefox alacritty zsh \
   sway inetutils playerctl rustup tmux \
   openssl-1.1 bluez bluez-utils wget \
   base-devel dunst wofi noto-fonts-emoji \
   light brightnessctl pass docker \
-  pavucontrol
+  pavucontrol seahorse man
 
 # rustup
 rustup default stable
@@ -29,7 +29,7 @@ cd ~
 pikaur -S xremap-x11-bin spotify-tui-bin \
   betterdiscord-installer-bin discord obs-studio \
   nerd-fonts-cozette-ttf ttf-font-awesome ttf-cozette \
-  waybar
+  waybar swaybg emacs-gcc-wayland-devel-bin
 
 # xremap
 sudo groupadd input
@@ -49,14 +49,6 @@ chsh $USER --shell /bin/zsh
 sudo systemctl enable --now docker
 sudo groupadd docker
 sudo usermod -aG docker $USER
-
-# Wallpapers
-mkdir Wallpapers && cd Wallpapers
-wget "https://github.com/FrenzyExists/wallpapers/raw/main/Gruv/gruv-temple.png"
-wget "https://e0.pxfuel.com/wallpapers/885/812/desktop-wallpaper-i3-gaps-gruvbox-arch-love-r-unixporn.jpg"
-wget "https://github.com/FrenzyExists/wallpapers/raw/main/Anime/anime-coffee-girl.jpg"
-wget -U "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)"  "https://wallpapers.com//images/hd/celeste-madeline-strawberry-2o1vy9t0faa9vwm0.jpg"
-cd ..
 
 # Setup asdf-vm, thefuck
 pikaur -S asdf-vm thefuck
