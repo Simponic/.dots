@@ -3,6 +3,7 @@
 
 USER=lizzy
 MACHINE_ZSH=~/scripts/machine-specific-zsh/$(hostname).zsh
+CURSOR_THEME="Oxygen 19 Pink Blossom"
 
 # Some packages
 sudo pacman -S git vim \
@@ -29,7 +30,10 @@ cd ~
 pikaur -S xremap-x11-bin spotify-tui-bin \
   betterdiscord-installer-bin discord obs-studio \
   nerd-fonts-cozette-ttf ttf-font-awesome ttf-cozette \
-  waybar swaybg emacs-gcc-wayland-devel-bin
+  waybar swaybg emacs-gcc-wayland-devel-bin swaylock-corrupter
+
+# Copy cursors
+sudo cp -r ~/.icons/"$CURSOR_THEME" /usr/share/icons
 
 # xremap
 sudo groupadd input

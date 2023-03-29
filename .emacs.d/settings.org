@@ -65,7 +65,7 @@
 #+END_SRC
 ** Font
 #+BEGIN_SRC emacs-lisp
-  (let ((font "CozetteVector-15"))
+  (let ((font "CozetteVector-13:antialias=none"))
     (set-face-attribute 'default nil :font font)
     (set-frame-font font nil t))
 #+END_SRC

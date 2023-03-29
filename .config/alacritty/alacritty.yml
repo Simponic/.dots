@@ -2,7 +2,7 @@ font:
   normal:
     family: "CozetteVector"
     options:
-      antialias: off
+      antialias: on
 
   bold:
     family: "CozetteVector"
