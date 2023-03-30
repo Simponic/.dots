@@ -19,7 +19,7 @@ set $wallpapers_path $HOME/Wallpapers
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg `find $wallpapers_path -type f | shuf -n 1` fill
+output * bg `find $wallpapers_path -type f | grep -v "gitkeep" | shuf -n 1` fill
 
 # VNC External Monitor
 output HEADLESS-1 {
