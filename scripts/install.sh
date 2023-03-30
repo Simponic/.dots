@@ -12,7 +12,8 @@ sudo pacman -S git vim \
   openssl-1.1 bluez bluez-utils wget \
   base-devel dunst wofi noto-fonts-emoji \
   light brightnessctl pass docker \
-  pavucontrol seahorse man
+  pavucontrol seahorse man xorg xorg-xwayland \
+  lxappearance
 
 # rustup
 rustup default stable
