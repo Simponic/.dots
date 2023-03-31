@@ -21,6 +21,7 @@ rustup default stable
 # Submodules - zsh stuff and pikaur
 git submodule init
 git submodule sync
+git submodule update
 
 # pikaur
 cd ~/src/pikaur
