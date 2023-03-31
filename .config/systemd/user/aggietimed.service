@@ -5,7 +5,7 @@ Wants=display.target
 [Service]
 Environment=DISPLAY=:0
 Type=simple
-ExecStart=/usr/bin/aggietimed -d -s /tmp/aggietimed.sock
+ExecStart=/home/lizzy/.asdf/shims/aggietimed -d -s /tmp/aggietimed.sock
 Restart=always
 
 [Install]
