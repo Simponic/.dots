@@ -19,6 +19,10 @@
 !zsh-stuff
 !zsh-stuff/*
 
+!src
+!src/pikaur
+!src/pikaur/*
+
 !.config
 !.config/picom
 !.config/picom/*
