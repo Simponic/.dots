@@ -61,6 +61,12 @@ pikaur -S asdf-vm thefuck
 echo ". /opt/asdf-vm/asdf.sh" >> $MACHINE_ZSH
 echo "eval \$(thefuck --alias)" >> $MACHINE_ZSH
 
+# setup node versions
+. /opt/asdf-vm/asdf.sh
+asdf plugin add nodejs
+asdf install nodejs lts-gallium
+asdf global nodejs lts-gallium
+
 # Now, generate ssh key
 ssh-keygen -t ed25519
 

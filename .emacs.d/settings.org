@@ -41,12 +41,19 @@
 #+BEGIN_SRC emacs-lisp
   (menu-bar-mode -1)
   (setq inhibit-startup-screen t) ;; Startup screen
-  (if (display-graphic-p)
-      (funcall (lambda ()
-                 (tool-bar-mode -1) ;; System bar
-                 (set-fringe-mode '(1 . 1)) ;; Minimize arrows before and after wrapped lines by setting fringe to 1px
-                 (toggle-scroll-bar -1)))) ;; Scroll bar
   (setq frame-resize-pixelwise t) ;; Use 100% of window space
+  (defun do-frame-config ()
+    (tool-bar-mode -1) ;; System bar
+    (set-fringe-mode '(1 . 1)) ;; Minimize arrows before and after wrapped lines by setting fringe to 1px
+    (toggle-scroll-bar -1))
+
+  (defun disable-scroll-bars (frame)
+    (modify-frame-parameters frame
+                             '((vertical-scroll-bars . nil)
+                               (horizontal-scroll-bars . nil))))
+  (when (display-graphic-p)
+    (do-frame-config)
+    (add-hook 'after-make-frame-functions 'disable-scroll-bars))
 #+END_SRC
 ** System path (macos)
 #+BEGIN_SRC emacs-lisp
