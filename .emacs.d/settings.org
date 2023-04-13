@@ -244,18 +244,6 @@
 #+END_SRC
 ** Languages
 *** Common Lisp
-**** Formatter! semantic-refactor
-#+BEGIN_SRC emacs-lisp
-  (use-package srefactor
-    :ensure t
-    :hook ((before-save .
-                        (lambda ()
-                          (when (eq major-mode 'lisp-mode)
-                            (srefactor-lisp-format-buffer))))))
-  (require 'srefactor)
-  (require 'srefactor-lisp)
-#+END_SRC
-
 **** Rainbow Parentheses
 #+BEGIN_SRC emacs-lisp
   (use-package rainbow-delimiters :ensure t)
