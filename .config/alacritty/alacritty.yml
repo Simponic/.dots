@@ -36,9 +36,6 @@ cursor:
   unfocused_hollow: false
 #  thickness: 0.33
 
-mouse:
-  hide_when_typing: true
-
 
 # Base16 Gruvbox light, medium 256 - alacritty color config
 # Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox)
