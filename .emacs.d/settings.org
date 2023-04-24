@@ -269,7 +269,15 @@
   (add-hook 'slime-repl-mode-hook 'set-up-slime-ac)
   (eval-after-load "auto-complete"
     '(add-to-list 'ac-modes 'slime-repl-mode))
-
+#+END_SRC
+**** cl-indentify
+#+BEGIN_SRC emacs-lisp
+  (defun on-lisp-save-cl-indentify ()
+    (when (eq major-mode 'lisp-mode)
+      (shell-command
+       (format "~/.roswell/bin/cl-indentify -r %s" (buffer-file-name)))))
+  (add-hook 'after-save-hook
+            #'on-lisp-save-cl-indentify)
 #+END_SRC
 *** Elixir
 #+BEGIN_SRC emacs-lisp
