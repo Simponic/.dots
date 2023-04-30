@@ -9,6 +9,7 @@ set $up k
 set $right l
 # Your preferred terminal emulator
 set $term alacritty
+set $lock swaylock-corrupter
 set $browser firefox
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
@@ -59,6 +60,8 @@ exec swayidle -w \
 #
 # Basics:
 #
+    # Start a terminal
+    bindsym $mod+Shift+n exec swaylock-corrupter
     # Start a terminal
     bindsym $mod+Return exec $term
 

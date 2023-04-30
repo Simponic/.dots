@@ -32,7 +32,8 @@ cd ~
 pikaur -S xremap-x11-bin spotify-tui-bin \
   betterdiscord-installer-bin discord obs-studio \
   nerd-fonts-cozette-ttf ttf-font-awesome ttf-cozette \
-  waybar swaybg emacs-gcc-wayland-devel-bin swaylock-corrupter
+  waybar swaybg emacs-gcc-wayland-devel-bin swaylock-corrupter \
+  waybar-mpris-git
 
 # Copy cursors
 sudo cp -r ~/.icons/"$CURSOR_THEME" /usr/share/icons
@@ -78,3 +79,4 @@ echo "  . Put spotify password in `pass insert spotify` for spotifyd"
 echo "  . Login to firefox"
 echo "  . Put ssh key into GitHub, change remote origin in ~"
 echo "  . Add waybar config in .config/waybar/local.d"
+echo "  . If streaming, install v4l2loopback-dkms, obs-studio-tytan652"
