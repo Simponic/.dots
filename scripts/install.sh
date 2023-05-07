@@ -13,7 +13,7 @@ sudo pacman -S git vim \
   base-devel dunst wofi noto-fonts-emoji \
   light brightnessctl pass docker \
   pavucontrol seahorse man xorg xorg-xwayland \
-  lxappearance
+  lxappearance wl-clipboard
 
 # rustup
 rustup default stable
