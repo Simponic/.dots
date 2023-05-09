@@ -8,3 +8,7 @@ eval $(thefuck --alias)
 
  # ghcup-env
 [ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env"
+
+export XDG_CURRENT_DESKTOP=sway
+export XDG_SESSION_DESKTOP=sway
+export QT_QPA_PLATFORM=wayland

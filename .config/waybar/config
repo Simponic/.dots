@@ -56,13 +56,17 @@
     "format-alt": "{time} {icon}",
     "format-icons": ["", "", "", "", ""]
   },
-  "custom/waybar-mpris": {
-    "return-type": "json",
-    "exec": "waybar-mpris --position --autofocus --play ▶ --pause ",
+  "mpris": {
+    "player-icons": {
+      "default": "▶"
+    },
+    "status-icons": {
+      "paused": ""
+    },
     "on-click": "waybar-mpris --send toggle",
     "on-click-right": "waybar-mpris --send player-next",
-    "escape": true,
     "max-length": 45,
-    "scroll-step": 1
+    "format": "{player_icon} {title} | {artist}",
+    "ignored-players": ["firefox"]
   },
 }
