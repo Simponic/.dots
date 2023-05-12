@@ -55,6 +55,21 @@
     (do-frame-config)
     (add-hook 'after-make-frame-functions 'disable-scroll-bars))
 #+END_SRC
+*** submlimity
+#+BEGIN_SRC emacs-lisp
+  (use-package sublimity
+    :ensure t
+    :straight '(sublimity
+                :type git
+                :host github
+                :repo "zk-phi/sublimity"))
+
+  (require 'sublimity-scroll)
+  ;;(require 'sublimity-map) ;; experimental
+  (require 'sublimity-attractive)
+
+  (sublimity-mode 1)
+#+END_SRC
 ** System path (macos)
 #+BEGIN_SRC emacs-lisp
   ;; Use system path on macos - needed for node
