@@ -2,6 +2,11 @@
 #+AUTHOR: Simponic
 #+STARTUP: fold
 
+* image-types hack (thanks macos)
+#+BEGIN_SRC emacs-lisp
+  (setq image-types '(svg png gif tiff jpeg xpm xbm pbg))
+#+END_SRC
+
 * Packages
 ** Melpa
 #+BEGIN_SRC emacs-lisp
@@ -87,7 +92,7 @@
 #+END_SRC
 ** Font
 #+BEGIN_SRC emacs-lisp
-  (let ((font "CozetteVector-13:antialias=none"))
+  (let ((font "CozetteVector-15:antialias=none"))
     (set-face-attribute 'default nil :font font)
     (set-frame-font font nil t))
 #+END_SRC
@@ -245,8 +250,8 @@
     :hook ((python-mode . lsp) ;; pip install python-lsp-server pyls-black pyls-isort pyls-mypy
            (elixir-mode . lsp)
            (rust-mode . lsp)
-           (java-mode . lsp)
            (php-mode . lsp)
+           (java-mode . lsp)
            (typescript-mode . lsp) ;; npm install -g typescript typescript-language-server
            (lsp-mode . lsp-enable-which-key-integration))
     :config (lsp-register-custom-settings
