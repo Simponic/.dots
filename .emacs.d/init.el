@@ -17,13 +17,13 @@
 
 ;; Configure use-package to use straight.el by default
 (use-package straight
-             :custom (straight-use-package-by-default t))
+  :custom (straight-use-package-by-default t))
 
 (straight-use-package 'org)
 (require 'org)
 (org-babel-load-file
  (expand-file-name "settings.org"
-		   user-emacs-directory))
+		               user-emacs-directory))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -33,6 +33,8 @@
  '(elcord-idle-message "Idling...")
  '(elcord-idle-timer 120)
  '(elcord-refresh-rate 3)
+ '(org-html-postamble nil)
+ '(org-html-preamble t)
  '(package-selected-packages
    '(kotlin-mode magit counsel doom-modeline doom-themes use-package))
  '(tab-width 2))
@@ -43,3 +45,4 @@
  ;; If there is more than one, they won't work right.
  )
 
+(put 'downcase-region 'disabled nil)
