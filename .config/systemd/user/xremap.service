@@ -2,7 +2,7 @@
 Description=xremap on startup as user
 
 [Service]
-Type=oneshot
+Type=simple
 ExecStart=/usr/bin/xremap /home/lizzy/.config/xremap/config.yml
 
 [Install]
