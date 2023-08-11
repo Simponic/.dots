@@ -2,6 +2,10 @@
 #+AUTHOR: Simponic
 #+STARTUP: fold
 
+* image-types hack (thanks macos)
+#+BEGIN_SRC emacs-lisp
+  (setq image-types '(svg png gif tiff jpeg xpm xbm pbg))
+#+END_SRC
 * Packages
 ** Melpa
 #+BEGIN_SRC emacs-lisp
@@ -393,15 +397,11 @@ After installing the ~rust-analyzer~ program, the following can be used:
     :ensure t)
 #+END_SRC
 
-#+RESULTS:
-: t
 *** PHP
 #+BEGIN_SRC emacs-lisp
   (use-package php-mode
     :ensure t)
 #+END_SRC
-
-#+RESULTS:
 
 ** Format All The Buffers
 #+BEGIN_SRC emacs-lisp
@@ -410,9 +410,6 @@ After installing the ~rust-analyzer~ program, the following can be used:
   (add-hook 'prog-mode-hook 'format-all-mode)
   (add-hook 'format-all-mode-hook 'format-all-ensure-formatter)
 #+END_SRC
-
-#+RESULTS:
-| format-all-ensure-formatter |
 
 * Multiple Cursors
 #+BEGIN_SRC emacs-lisp
