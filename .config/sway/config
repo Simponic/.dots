@@ -1,4 +1,4 @@
-### Variables
+## Variables
 #
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
@@ -60,7 +60,6 @@ exec swayidle -w \
 #
 # Basics:
 #
-    # Start a terminal
     bindsym $mod+Shift+n exec swaylock-corrupter
     # Start a terminal
     bindsym $mod+Return exec $term

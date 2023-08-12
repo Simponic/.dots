@@ -1,10 +1,6 @@
 #!/bin/sh
 # after archinstall...
 
-USER=lizzy
-MACHINE_ZSH=~/scripts/machine-specific-zsh/$(hostname).zsh
-CURSOR_THEME="Oxygen 19 Pink Blossom"
-
 # Some packages
 sudo pacman -S git vim \
   networkmanager firefox alacritty zsh \
@@ -13,7 +9,12 @@ sudo pacman -S git vim \
   base-devel dunst wofi noto-fonts-emoji \
   light brightnessctl pass docker \
   pavucontrol seahorse man xorg xorg-xwayland \
-  lxappearance wl-clipboard
+  lxappearance wl-clipboard python-hatchling
+
+# VARS
+USER=lizzy
+MACHINE_ZSH=~/scripts/machine-specific-zsh/$(hostname).zsh
+CURSOR_THEME="Oxygen 19 Pink Blossom"
 
 # rustup
 rustup default stable
@@ -31,8 +32,8 @@ cd ~
 # AUR packages
 pikaur -S xremap-x11-bin spotify-tui-bin \
   betterdiscord-installer-bin discord obs-studio \
-  nerd-fonts-cozette-ttf ttf-font-awesome ttf-cozette \
-  waybar swaybg emacs-gcc-wayland-devel-bin swaylock-corrupter \
+  nerd-fonts-cozette-ttf ttf-font-awesome cozette-ttf waybar \
+  swaybg emacs-gcc-wayland-devel-bin swaylock-corrupter \
   waybar-mpris-git
 
 # Copy cursors
@@ -41,7 +42,7 @@ sudo cp -r ~/.icons/"$CURSOR_THEME" /usr/share/icons
 # xremap
 sudo groupadd input
 lsmod | grep uinput || echo 'uinput' | sudo tee /etc/modules-load.d/uinput.conf && \
-  echo 'KERNEL=="uinput", GROUP="input", MODE="0660"' | sudo tee /etc/udev/rules.d/99-input.rules
+  echo 'KERNEL=="uinput", GROUP="input", TAG+="uaccess"' | sudo tee /etc/udev/rules.d/99-input.rules
 sudo usermod -aG input $USER
 systemctl enable --user xremap
 
@@ -65,8 +66,8 @@ echo "eval \$(thefuck --alias)" >> $MACHINE_ZSH
 # setup node versions
 . /opt/asdf-vm/asdf.sh
 asdf plugin add nodejs
-asdf install nodejs lts-gallium
-asdf global nodejs lts-gallium
+asdf install nodejs latest:18
+asdf global nodejs latest:18
 
 # Now, generate ssh key
 ssh-keygen -t ed25519
