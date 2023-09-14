@@ -10,9 +10,9 @@ export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 export PATH=$PATH:/Users/lizzy/.spicetify
 export PATH="/opt/homebrew/bin:/opt/homebrew/sbin${PATH+:$PATH}";
+export PATH="/Users/lizzy/.bun/bin/:$PATH"
 
 # asdf
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
+. $(brew --prefix asdf)/libexec/asdf.sh
 
 export PATH=$PATH:/Users/lizzy/.spicetify

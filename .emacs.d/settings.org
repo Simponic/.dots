@@ -89,9 +89,14 @@
 #+BEGIN_SRC emacs-lisp
   (global-hl-line-mode)
 #+END_SRC
+** Line Height
+#+BEGIN_SRC emacs-lisp
+  (setq line-spacing 0.29)
+#+END_SRC
 ** Font
 #+BEGIN_SRC emacs-lisp
-  (let ((font "CozetteVector-13:antialias=none"))
+  ;;  (let ((font "CozetteVector-13:antialias=none"))
+  (let ((font "Anonymous Pro Minus-14"))
     (set-face-attribute 'default nil :font font)
     (set-frame-font font nil t))
 #+END_SRC

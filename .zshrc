@@ -1,5 +1,6 @@
 # Machine specific config
-[ -f ~/scripts/machine-specific-zsh/$(hostname).zsh ] && source ~/scripts/machine-specific-zsh/$(hostname).zsh
+MACHINE_ZSH=~/scripts/machine-specific-zsh/$(hostname | grep -oh "\w*" | head -n1).zsh
+[ -f $MACHINE_ZSH ] && source $MACHINE_ZSH
 
 export GPG_TTY=$(tty)
 export PATH=$PATH:$HOME/scripts:$HOME/.local/bin:$HOME/.rowswell/bin
@@ -53,4 +54,3 @@ alias fuckctl="journalctl -fu"
 
 alias sbcl="rlwrap sbcl"
 alias spt="spt --tick-rate 12"
-
