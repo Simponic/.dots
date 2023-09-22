@@ -25,9 +25,9 @@
 #+END_SRC
 ** Indentation
 #+BEGIN_SRC emacs-lisp
-  (setq default-tab-width 2)
-  (setq-default tab-width 2)
-  (setq-default indent-tabs-mode nil)
+  (setq default-tab-width 2
+        tab-width 2
+        indent-tabs-mode nil)
 #+END_SRC
 ** Line numbers
 #+BEGIN_SRC emacs-lisp
@@ -85,18 +85,17 @@
 #+END_SRC
 
 * Theming
+** Line spacing
+#+BEGIN_SRC emacs-lisp
+  (setq line-spacing 0.24)
+#+END_SRC
 ** Highlight current line
 #+BEGIN_SRC emacs-lisp
   (global-hl-line-mode)
 #+END_SRC
-** Line Height
-#+BEGIN_SRC emacs-lisp
-  (setq line-spacing 0.29)
-#+END_SRC
 ** Font
 #+BEGIN_SRC emacs-lisp
-  ;;  (let ((font "CozetteVector-13:antialias=none"))
-  (let ((font "Anonymous Pro Minus-14"))
+  (let ((font "Anonymous Pro Minus:14"))
     (set-face-attribute 'default nil :font font)
     (set-frame-font font nil t))
 #+END_SRC
@@ -180,7 +179,9 @@
 * Org mode
 ** General
 #+BEGIN_SRC emacs-lisp
-  (setq org-startup-indented t)
+  (setq org-startup-indented t
+        org-html-postamble nil
+        org-html-preamble t)
 #+END_SRC
 ** Babel
 *** Elixir
@@ -273,7 +274,6 @@
   (use-package rainbow-delimiters :ensure t)
   (add-hook 'lisp-mode-hook #'rainbow-delimiters-mode)
 #+END_SRC
-
 **** Slime
 #+BEGIN_SRC emacs-lisp
   (use-package slime
@@ -296,6 +296,8 @@
 #+END_SRC
 **** cl-indentify
 #+BEGIN_SRC emacs-lisp
+  ;; roswell is in the AUR
+  ;; ros install cl-indentify
   (defun on-lisp-save-cl-indentify ()
     (when (eq major-mode 'lisp-mode)
       (shell-command
@@ -313,13 +315,12 @@
                             (elixir-format))))))
 #+END_SRC
 *** Rust
-After installing the ~rust-analyzer~ program, the following can be used:
+After installing the ~rust-analyzer~, the following can be used:
 #+BEGIN_SRC emacs-lisp
   (use-package rust-mode
     :ensure t)
   (setq lsp-rust-server 'rust-analyzer)
 #+END_SRC
-
 *** Web Stuff
 **** typescript-mode
 #+BEGIN_SRC emacs-lisp
@@ -337,9 +338,6 @@ After installing the ~rust-analyzer~ program, the following can be used:
     (setq flycheck-check-syntax-automatically '(save mode-enabled))
     (eldoc-mode +1)
     (tide-hl-identifier-mode +1)
-    ;; company is an optional dependency. You have to
-    ;; install it separately via package-install
-    ;; `M-x package-install [ret] company`
     (company-mode +1))
 
   (use-package tide
@@ -420,19 +418,21 @@ After installing the ~rust-analyzer~ program, the following can be used:
 #+BEGIN_SRC emacs-lisp
   (use-package multiple-cursors
     :straight t
-    :ensure   t
+    :ensure t
     :bind (("H-SPC" . set-rectangular-region-anchor)
            ("C-M-SPC" . set-rectangular-region-anchor)
            ("C->" . mc/mark-next-like-this)
            ("C-<" . mc/mark-previous-like-this)
            ("C-c C->" . mc/mark-all-like-this)
-           ("C-c C-SPC" . mc/edit-lines)
-           ))
+           ("C-c C-SPC" . mc/edit-lines)))
 #+END_SRC
 * Elcord
 #+BEGIN_SRC emacs-lisp
   (use-package elcord
+    :config
+    (setq elcord-idle-message "Idling..."
+          elcord-idle-timer 300
+          elcord-refresh-rate 3)
     :ensure t)
-
   (elcord-mode)
 #+END_SRC
