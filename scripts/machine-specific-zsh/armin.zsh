@@ -11,6 +11,7 @@ export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 export PATH=$PATH:/Users/lizzy/.spicetify
 export PATH="/opt/homebrew/bin:/opt/homebrew/sbin${PATH+:$PATH}";
 export PATH="/Users/lizzy/.bun/bin/:$PATH"
+export PATH="/opt/homebrew/opt/erlang@25/bin:$PATH"
 
 # asdf
 . $(brew --prefix asdf)/libexec/asdf.sh
