@@ -94,7 +94,7 @@
 #+END_SRC
 ** Font
 #+BEGIN_SRC emacs-lisp
-  (let ((font "Anonymous Pro Minus:15"))
+  (let ((font "CozetteVector:15"))
     (set-face-attribute 'default nil :font font)
     (set-frame-font font nil t))
 #+END_SRC
