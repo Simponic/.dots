@@ -94,7 +94,7 @@
 #+END_SRC
 ** Font
 #+BEGIN_SRC emacs-lisp
-  (let ((font "CozetteVector:15"))
+  (let ((font "CozetteVector-13"))
     (set-face-attribute 'default nil :font font)
     (set-frame-font font nil t))
 #+END_SRC
@@ -193,7 +193,10 @@ must run ~(all-the-icons-install-fonts)~ and ~(nerd-fonts-install-fonts)~
   (use-package ob-elixir
      :ensure t)
 #+END_SRC
-
+*** JS
+#+BEGIN_SRC emacs-lisp
+  (require 'ob-js)
+#+END_SRC
 *** Load Languages
 #+BEGIN_SRC emacs-lisp
   (org-babel-do-load-languages
@@ -201,6 +204,7 @@ must run ~(all-the-icons-install-fonts)~ and ~(nerd-fonts-install-fonts)~
    '((lisp . t)
      (elixir . t)
      (emacs-lisp . t)
+     (js . t)
      (python . t)))
 #+END_SRC
 ** org-bullets
@@ -261,6 +265,7 @@ must run ~(all-the-icons-install-fonts)~ and ~(nerd-fonts-install-fonts)~
            (rust-mode . lsp)
            (java-mode . lsp)
            (php-mode . lsp)
+           (c-mode . lsp)
            (typescript-mode . lsp) ;; npm install -g typescript typescript-language-server
            (lsp-mode . lsp-enable-which-key-integration))
     :config (lsp-register-custom-settings
