@@ -94,7 +94,7 @@
 #+END_SRC
 ** Font
 #+BEGIN_SRC emacs-lisp
-  (let ((font "CozetteVector-13"))
+  (let ((font "JetBrains Mono-8:style=Regular"))
     (set-face-attribute 'default nil :font font)
     (set-frame-font font nil t))
 #+END_SRC
@@ -258,7 +258,6 @@ must run ~(all-the-icons-install-fonts)~ and ~(nerd-fonts-install-fonts)~
   (use-package lsp-mode
     :ensure t
     :init
-    ;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
     (setq lsp-keymap-prefix "C-c l")
     :hook ((python-mode . lsp) ;; pip install python-lsp-server pyls-black pyls-isort pyls-mypy
            (elixir-mode . lsp)
@@ -266,15 +265,15 @@ must run ~(all-the-icons-install-fonts)~ and ~(nerd-fonts-install-fonts)~
            (java-mode . lsp)
            (php-mode . lsp)
            (c-mode . lsp)
-           (typescript-mode . lsp) ;; npm install -g typescript typescript-language-server
+  	 (typescript-mode . lsp)
            (lsp-mode . lsp-enable-which-key-integration))
-    :config (lsp-register-custom-settings
-             '(("pyls.plugins.pyls_mypy.enabled" t t)
-               ("pyls.plugins.pyls_mypy.live_mode" nil t)
-               ("pyls.plugins.pyls_black.enabled" t t)
-               ("pyls.plugins.pyls_isort.enabled" t t)))
+    :config (progn
+  	    (lsp-register-custom-settings
+               '(("pyls.plugins.pyls_mypy.enabled" t t)
+                 ("pyls.plugins.pyls_mypy.live_mode" nil t)
+                 ("pyls.plugins.pyls_black.enabled" t t)
+                 ("pyls.plugins.pyls_isort.enabled" t t))))
     :commands lsp)
-
 #+END_SRC
 ** Languages
 *** Common Lisp
@@ -348,7 +347,7 @@ After installing the ~rust-analyzer~, the following can be used:
     (eldoc-mode +1)
     (tide-hl-identifier-mode +1)
     (company-mode +1))
-
+  
   (use-package tide
     :ensure t
     :after (typescript-mode company flycheck)
