@@ -275,6 +275,15 @@ must run ~(all-the-icons-install-fonts)~ and ~(nerd-fonts-install-fonts)~
                  ("pyls.plugins.pyls_isort.enabled" t t))))
     :commands lsp)
 #+END_SRC
+** Tree-Sitter
+#+BEGIN_SRC emacs-lisp
+  (use-package treesit-auto
+    :ensure t
+    :custom (treesit-auto-install 'prompt)
+    :config
+      (treesit-auto-add-to-auto-mode-alist 'all)
+      (global-treesit-auto-mode))
+#+END_SRC
 ** Languages
 *** Common Lisp
 **** Rainbow Parentheses
@@ -332,11 +341,16 @@ After installing the ~rust-analyzer~, the following can be used:
 *** Web Stuff
 **** typescript-mode
 #+BEGIN_SRC emacs-lisp
-  ;; TODO: Update to tree-sitter in Emacs 29
   (use-package typescript-mode
     :ensure t)
   (setq typescript-indent-level 2)
 #+END_SRC
+**** astro
+#+BEGIN_SRC emacs-lisp
+  (use-package astro-ts-mode
+    :ensure t)
+  ;; note - do treesit-install-language-grammar astro @ https://github.com/virchau13/tree-sitter-astro
+#+END_SR
 **** TIDE
 #+BEGIN_SRC emacs-lisp
   (defun setup-tide-mode ()
@@ -357,7 +371,6 @@ After installing the ~rust-analyzer~, the following can be used:
 
 **** Web Mode
 #+BEGIN_SRC emacs-lisp
-  ;; web-mode
   (setq web-mode-markup-indent-offset 2)
   (setq web-mode-code-indent-offset 2)
   (setq web-mode-css-indent-offset 2)
@@ -369,14 +382,6 @@ After installing the ~rust-analyzer~, the following can be used:
            ("\\.tsx\\'" . web-mode)
            ("\\.html\\'" . web-mode))
     :commands web-mode)
-#+END_SRC
-**** Prettier
-#+BEGIN_SRC emacs-lisp
-  (use-package prettier-js
-    :ensure t)
-  (add-hook 'js2-mode-hook 'prettier-js-mode)
-  (add-hook 'typescript-mode 'prettier-js-mode)
-  (add-hook 'web-mode-hook 'prettier-js-mode)
 #+END_SRC
 **** Prisma
 #+BEGIN_SRC emacs-lisp
@@ -395,6 +400,15 @@ After installing the ~rust-analyzer~, the following can be used:
                 :type git
                 :host github
                 :repo "leafOfTree/svelte-mode"))
+#+END_SRC
+**** Prettier
+#+BEGIN_SRC emacs-lisp
+  (use-package prettier-js
+    :ensure t)
+  (add-hook 'astro-ts-mode-hook 'prettier-js-mode)
+  (add-hook 'js2-mode-hook 'prettier-js-mode)
+  (add-hook 'typescript-mode 'prettier-js-mode)
+  (add-hook 'web-mode-hook 'prettier-js-mode)
 #+END_SRC
 *** Kotlin
 #+BEGIN_SRC emacs-lisp
@@ -419,6 +433,7 @@ After installing the ~rust-analyzer~, the following can be used:
   (use-package format-all
     :ensure t)
   (add-hook 'prog-mode-hook 'format-all-mode)
+  (add-hook 'astro-ts-mode-hook 'format-all-mode)
   (add-hook 'format-all-mode-hook 'format-all-ensure-formatter)
 #+END_SRC
 
